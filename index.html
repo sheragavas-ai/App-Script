@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.
+    }
+      </style>
+<body>
+  <button id="saveBtn">Save Data</button>
+  <button id="fetchdataBtn">Fetch Data</button>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbws7QzcXTNDkuxFSRgGPpXYl_JgOIY4Atcz9hUmKG7257s0XTs2iamsbitGwmgqYxAA/exec"; 
+
+  document.getElementById("saveBtn").addEventListener("click", () => {
+    const payload = { name: "John Doe", score: 95 };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg))
+    .catch(err => console.error("Error:", err));
+  });
+
+document.getElementById("saveBtn").addEventListener("click", () => {
+  fetch(scriptURL)
+  .then(res => res.json())
+  .then(data => console.log(data));
+});
+
+</script>
+
+</body>
+</html>
